@@ -13,12 +13,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PostsLoaderComponent } from './posts-loader/posts-loader.component';
 import { PostComponent } from './posts-loader/post/post.component';
 import { NewPostComponent } from './posts-loader/new-post/new-post.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { NewPostComponent } from './posts-loader/new-post/new-post.component';
     MatIconModule,
     MatListModule,
     MatInputModule,
+    MatCardModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],

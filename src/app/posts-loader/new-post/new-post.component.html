@@ -26,8 +26,8 @@
           (mousedown)="onPostEdit()"
           ngModel
         ></textarea>
-        <div *ngIf="photoUrl">
-          <img [src]="photoUrl" alt="">
+        <div *ngIf="imgUrl">
+          <img [src]="imgUrl" alt="" style="max-height: 500px; max-width: 500px;">
         </div>
       </mat-card-content>
       <mat-divider [inset]="true"></mat-divider>
@@ -41,11 +41,11 @@
           <mat-icon>add_photo_alternate</mat-icon>
           Add Photo
         </button>
-        <input name="postImg" accept="image/*" type="file" #photoUpload hidden ngModel/>
+        <input name="postImg" accept="image/*" type="file" (change)="onImageChange($event)" #photoUpload hidden ngModel/>
       </mat-card-content>
       <mat-divider *ngIf="isEdit"></mat-divider>
-      <mat-card-actions *ngIf="isEdit">
-        <button type="submit" class="action-button" mat-stroked-button color="primary">Post</button>
+      <mat-card-actions *ngIf="isEdit" style="margin: 0">
+        <button type="submit" class="action-button" mat-raised-button color="primary">Post</button>
       </mat-card-actions>
     </form>
   </mat-card>

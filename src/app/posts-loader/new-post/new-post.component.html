@@ -2,23 +2,51 @@
   <mat-card class="form">
     <mat-card-header>
       <mat-card-title class="heading">Create a new post</mat-card-title>
+      <button
+        *ngIf="isEdit"
+        type="button"
+        style="margin-left: auto; cursor: pointer;"
+        (click)="onPostEditClose()"
+        mat-icon-button
+      >
+        <mat-icon>close</mat-icon>
+      </button>
     </mat-card-header>
     <mat-divider></mat-divider>
-    <form>
-      <mat-card-content>
-        <mat-form-field class="full-width" style="margin-top: 10px;">
-          <textarea
-            matInput
-            placeholder="Write Something..."
-            rows="4"
-          ></textarea>
-        </mat-form-field>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <mat-card-content style="padding-top: 10px;">
+        <!-- <mat-form-field class="full-width" style="margin-top: 10px;">
+
+        </mat-form-field> -->
+        <textarea
+          name="postText"
+          class="full-width post-text"
+          placeholder="Write Something..."
+          [rows]="postRow"
+          (mousedown)="onPostEdit()"
+          ngModel
+        ></textarea>
+        <div *ngIf="photoUrl">
+          <img [src]="photoUrl" alt="">
+        </div>
       </mat-card-content>
-      <mat-card-content>
-        uktudgf
+      <mat-divider [inset]="true"></mat-divider>
+      <mat-card-content class="mat-card-custom">
+        <button
+          type="button"
+          class="action-button"
+          (click)="photoUpload.click()"
+          mat-stroked-button
+        >
+          <mat-icon>add_photo_alternate</mat-icon>
+          Add Photo
+        </button>
+        <input name="postImg" accept="image/*" type="file" #photoUpload hidden ngModel/>
       </mat-card-content>
-      <mat-divider></mat-divider>
-      <mat-card-actions> </mat-card-actions>
+      <mat-divider *ngIf="isEdit"></mat-divider>
+      <mat-card-actions *ngIf="isEdit">
+        <button type="submit" class="action-button" mat-stroked-button color="primary">Post</button>
+      </mat-card-actions>
     </form>
   </mat-card>
 </div>

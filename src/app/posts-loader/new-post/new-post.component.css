@@ -11,6 +11,23 @@
   min-width: 600px;
 }
 
+/* .mat-card {
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+
+.mat-card-content {
+  padding-left: 16px;
+  padding-right: 16px;
+} */
+
+.mat-card-custom {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+}
+
 .full-width {
   width: 100%;
 }
@@ -18,4 +35,18 @@
 .heading {
   font-size: 1.5em;
   letter-spacing: 5px;
+}
+
+.action-button {
+  border-radius: 20px;
+}
+
+.post-text {
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  padding: 0 20px;
+  font-size: 1.3rem;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }

@@ -1,6 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 /* font-family: 'McLaren', cursive;
 font-family: 'Muli', sans-serif; */
+
+.full-width {
+  width: 100%;
+}
+
+.mat-card-custom {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+}

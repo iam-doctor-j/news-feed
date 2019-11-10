@@ -30,7 +30,10 @@
         >Sidenav</mat-sidenav
       >
       <!-- content -->
-      <app-posts-loader></app-posts-loader>
+      <div class="content-container">
+        <router-outlet></router-outlet>
+      </div>
+      <!-- <router-outlet></router-outlet> -->
     </mat-sidenav-container>
   </mat-sidenav-content>
 </mat-sidenav-container>

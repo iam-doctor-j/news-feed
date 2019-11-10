@@ -1,0 +1,41 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <p class="mat-display-1">Sign Up</p>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-divider [inset]="true"></mat-divider>
+    <form #f="ngForm" (ngSubmit)="onSignup(f)">
+        <mat-card-content class="mat-card-custom">
+            <mat-form-field class="full-width">
+                <input type="text" name="fname" matInput placeholder="First Name" ngModel required> 
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input type="text" name="lname" matInput placeholder="Last Name" ngModel required> 
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input name="dob" [matDatepicker]="dob" matInput placeholder="Date of Birth" ngModel required>
+                <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+                <mat-datepicker #dob></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <textarea matInput cdkTextareaAutosize name="bio" placeholder="Something about yourself..." ngModel style="resize: none;"></textarea> 
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input type="email" name="email" matInput placeholder="Email Id" ngModel required email> 
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input type="password" [(ngModel)]="password" name="password" matInput placeholder="Password" ngModel required password>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input type="password" [(ngModel)]="conf_password" name="conf_password" matInput placeholder="Confirm Password" ngModel required password>
+            </mat-form-field>
+            <mat-error *ngIf="f.touched && (password !== conf_password)">Passwords do not match</mat-error>
+        </mat-card-content>
+        <mat-divider [inset]="true"></mat-divider>
+        <mat-card-footer class="mat-card-custom custom-footer">
+            <button type="submit" mat-raised-button color="primary" class="action-button" [disabled]="!f.valid && (password !== conf_password)">Sign Up</button>
+            <div>Already a member? <button type="button" class="action-button" mat-raised-button color="accent" [routerLink]="['../signin']">Login</button></div>
+        </mat-card-footer>
+    </form>
+</mat-card>

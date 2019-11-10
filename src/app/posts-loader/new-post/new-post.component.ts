@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { NgForm } from "@angular/forms";
+import { Post } from 'src/app/models/post.model';
+import { PostStorageService } from 'src/app/services/post-storage.service';
 
 @Component({
   selector: "app-new-post",
@@ -13,7 +15,7 @@ export class NewPostComponent implements OnInit {
   imgUrl: any;
   imagePath: string;
 
-  constructor() {}
+  constructor(private postStorageService: PostStorageService) {}
 
   ngOnInit() {}
 
@@ -45,6 +47,7 @@ export class NewPostComponent implements OnInit {
 
   onSubmit(postForm: NgForm) {
     console.log(postForm);
-    // this.photoUrl = postForm.form.value.postImg;
+    const newPost = new Post(postForm.form.value.postText, this.imgUrl, new Date());
+    this.postStorageService.sendPost(newPost, 'jyotirmayasahu');
   }
 }

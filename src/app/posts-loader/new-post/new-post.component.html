@@ -27,7 +27,7 @@
           ngModel
         ></textarea>
         <div *ngIf="imgUrl">
-          <img [src]="imgUrl" alt="" style="max-height: 500px; max-width: 500px;">
+          <img [src]="imgUrl" alt="" mat-card-image>
         </div>
       </mat-card-content>
       <mat-divider [inset]="true"></mat-divider>
@@ -44,7 +44,7 @@
         <input name="postImg" accept="image/*" type="file" (change)="onImageChange($event)" #photoUpload hidden ngModel/>
       </mat-card-content>
       <mat-divider *ngIf="isEdit"></mat-divider>
-      <mat-card-actions *ngIf="isEdit" style="margin: 0">
+      <mat-card-actions *ngIf="isEdit" style="margin: 0 ">
         <button type="submit" class="action-button" mat-raised-button color="primary">Post</button>
       </mat-card-actions>
     </form>

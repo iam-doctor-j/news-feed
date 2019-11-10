@@ -29,3 +29,10 @@
   font-family: 'McLaren', cursive;
   font-size: 1.5em;
 }
+
+.content-container {
+  max-width: 600px;
+  min-width: 600px;
+  padding: 1.5rem;
+  margin: 0 auto;
+}
